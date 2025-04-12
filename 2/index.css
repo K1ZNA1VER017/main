@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "jet";
+    src: url(ttf/JetBrainsMono-Bold.ttf);
+}
+
+body, html {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: "jet";
+}
+
+.header {
+    display: flex;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background: rgb(1, 110, 228);
+    height: 85px;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.header input {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    background: rgb(229, 228, 228);
+    font-family: "jet";
+    width: 433px;
+    height: 55px;
+    margin: auto 0;
+    margin-left: 10px;
+}
+
+.buthed {
+    text-decoration: none;
+    font-family: "jet";
+    color: black;
+    margin: auto 0;
+    margin-left: 50px;
+    height: 20px;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    background: rgb(1, 206, 194);
+}
+
+.cab {
+    width: 50px;
+    height: 50px;
+    margin: auto 0;
+    margin-left: auto; /* Прижимает элемент к правому краю */
+    margin-right: 10px; /* Добавляет небольшой отступ от правого края */
+    /* Пример оформления ссылки (настройте под свои нужды) */
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 50px;
+    background: rgb(255, 255, 255);
+}
+
+.main {
+    display: flex;
+    margin-top: 30px;
+}
+
+.spec {
+    height: 500px;
+    display: flex;
+    margin-left: 60px;
+    width: 967px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    background: rgb(1, 110, 228);
+
+}
+
+.imagespec {
+    margin: 20px;
+    padding: 10px;
+    height: 200px;
+    width: 250px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background: rgb(139, 193, 251);
+}
+
+.imagespec img {
+    border-radius: 10px;
+}
+
+.opis {
+    height: 400px;
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 4px;
+    background: rgb(139, 193, 251);
+}
+
+.price {
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: rgb(1, 110, 228);
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+}

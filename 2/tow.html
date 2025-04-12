@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнение товаров</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* Стили для формы */
+        .tow {
+            display: flex;
+            padding: 20px;
+        }
+        
+        .card {
+            width: 500px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            background: rgb(1, 110, 228);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        #links-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        #links-form input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 3px;
+            font-family: "jet";
+            background: rgb(229, 228, 228);
+            box-sizing: border-box;
+        }
+        
+        #add-input-btn {
+            padding: 10px 15px;
+            background: rgb(1, 206, 194);
+            border: 1px solid #000;
+            border-radius: 3px;
+            font-family: "jet";
+            cursor: pointer;
+            align-self: flex-start;
+            margin-top: 10px;
+        }
+        
+        #add-input-btn:hover {
+            background: rgb(1, 180, 170);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <input type="text" placeholder="ПОИСК">
+        <a href="tow.html" class="buthed">СРАВНИТЬ ТОВАРЫ</a>
+        <a href="index.html" class="buthed">ГЛАВНАЯ</a>
+        <a href="" class="cab"></a>
+    </div>
+    <div class="tow">
+        <div class="card">
+            <!-- Здесь будет карточка товара -->
+            <form id="links-form" action="links">
+                <div class="input-group">
+                    <input type="text" placeholder="Ссылка на товар 1" required>
+                    <input type="text" placeholder="Ссылка на товар 2" required>
+                </div>
+                <button type="button" id="add-input-btn">Добавить товар</button>
+            </form>
+        </div>
+        <div class="price">
+
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('add-input-btn').addEventListener('click', function() {
+            const inputGroup = document.querySelector('.input-group');
+            const newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.placeholder = 'Ссылка на товар ' + (inputGroup.children.length + 1);
+            newInput.required = true;
+            inputGroup.appendChild(newInput);
+        });
+    </script>
+</body>
+</html>

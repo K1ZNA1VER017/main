@@ -1,0 +1,129 @@
+@font-face {
+    font-family: "Jet";
+    src: url(ttf/JetBrainsMono-Bold.ttf);
+}
+
+body, html {
+    font-family: "Jet";
+    padding: 0px;
+    margin: 0px;
+}
+
+.main {
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    background: rgb(1, 110, 228);
+    width: 700px;
+    height: 701px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Позиционирование по вертикали */
+    left: 50%; /* Позиционирование по горизонтали */
+    transform: translate(-50%, -50%); /* Смещение для точного центрирования */
+}
+
+.regh1 {
+    text-align: center;
+    padding: 10px;
+    width: 486px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    background: rgb(1, 206, 194);
+    margin: 0 auto; /* Центрирование по горизонтали */
+    margin-top: 20px;
+}
+
+.email {
+    display: flex;
+}
+
+.email h2 {
+    padding: 10px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    margin-top: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    background: rgb(1, 206, 194);
+}
+
+.email input {
+    width: 330px;
+    height: 50px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    margin-top: 20px;
+    background: rgb(139, 193, 251);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+}
+
+.password {
+    display: flex;
+}
+
+.password h2 {
+    padding: 10px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    margin-top: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    background: rgb(1, 206, 194);
+}
+
+.password input {
+    width: 330px;
+    height: 50px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    margin-top: 20px;
+    background: rgb(139, 193, 251);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+}
+
+.confpassword {
+    display: flex;
+}
+
+.confpassword h2 {
+    width: 170px;
+    padding: 10px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    margin-top: 20px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    background: rgb(1, 206, 194);
+
+}
+
+.confpassword input {
+    width: 358px;
+    height: 50px;
+    margin: 0 auto; /* Центрирование по горизонтали */
+    margin-top: 20px;
+    background: rgb(139, 193, 251);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+}
+
+.butfot {
+    margin-top: 100px;
+}
+
+.butfot button{
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    background: rgb(1, 206, 194);
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-family: "jet";
+}
+
+.butfot a {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    background: rgb(1, 206, 194);
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
