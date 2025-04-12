@@ -3,111 +3,167 @@
     src: url(ttf/JetBrainsMono-Bold.ttf);
 }
 
-body, html {
-    margin: 0px;
-    padding: 0px;
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4cc9f0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --success-color: #4ad66d;
+    --warning-color: #f8961e;
+    --danger-color: #f94144;
 }
 
-body {
-    font-family: "jet";
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "jet", sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
 }
 
 .header {
     display: flex;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 5px;
-    background: rgb(1, 110, 228);
-    height: 85px;
-    width: 98%;
-    margin: 0 auto;
-    margin-top: 5px;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    height: 80px;
+    width: 100%;
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .header input {
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 3px;
-    background: rgb(229, 228, 228);
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
     font-family: "jet";
-    width: 433px;
-    height: 55px;
-    margin: auto 0;
-    margin-left: 10px;
+    width: 400px;
+    height: 40px;
+    padding: 0 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.header input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+    background: white;
 }
 
 .buthed {
     text-decoration: none;
     font-family: "jet";
-    color: black;
-    margin: auto 0;
-    margin-left: 50px;
-    height: 20px;
-    padding: 10px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 3px;
-    background: rgb(1, 206, 194);
+    color: white;
+    margin: 0 10px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.buthed:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
 }
 
 .cab {
-    width: 50px;
-    height: 50px;
-    margin: auto 0;
-    margin-left: auto; /* Прижимает элемент к правому краю */
-    margin-right: 10px; /* Добавляет небольшой отступ от правого края */
-    /* Пример оформления ссылки (настройте под свои нужды) */
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
     text-decoration: none;
     color: white;
-    padding: 10px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 50px;
-    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.cab:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
 .main {
-    display: flex;
-    margin-top: 30px;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
 }
 
 .spec {
-    height: 500px;
     display: flex;
-    margin-left: 60px;
-    width: 967px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 5px;
-    background: rgb(1, 110, 228);
-
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .imagespec {
-    margin: 20px;
-    padding: 10px;
-    height: 200px;
-    width: 250px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    background: rgb(139, 193, 251);
+    flex: 0 0 300px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
 }
 
 .imagespec img {
-    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .opis {
-    height: 400px;
-    padding: 10px;
-    margin: 20px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 4px;
-    background: rgb(139, 193, 251);
+    flex: 1;
+    padding: 30px;
+    line-height: 1.6;
 }
 
 .price {
-    width: 500px;
-    height: 500px;
-    border: 1px solid #000;
-    border-radius: 5px;
-    background: rgb(1, 110, 228);
-    padding: 15px;
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
     margin-left: 50px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.spec, .price {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 10px;
+    }
+    
+    .header input {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .spec {
+        flex-direction: column;
+    }
+    
+    .imagespec {
+        flex: 0 0 auto;
+    }
 }
