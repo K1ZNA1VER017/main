@@ -6,56 +6,140 @@
     <title>Сравнение товаров</title>
     <link rel="stylesheet" href="index.css">
     <style>
-        /* Стили для формы */
-        .tow {
+        /* Основные стили */
+        .tow-container {
             display: flex;
+            justify-content: center;
+            gap: 30px;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        .card {
-            width: 500px;
-            border: 1px solid #000;
-            border-radius: 5px;
-            background: rgb(1, 110, 228);
-            padding: 15px;
-            margin-bottom: 20px;
+        /* Стили для формы ввода */
+        .input-card {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            background: white;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
         
         #links-form {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
         
         .input-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
         }
         
         #links-form input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #000;
-            border-radius: 3px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
             font-family: "jet";
-            background: rgb(229, 228, 228);
             box-sizing: border-box;
+            transition: all 0.3s ease;
         }
         
-        #add-input-btn {
-            padding: 10px 15px;
-            background: rgb(1, 206, 194);
-            border: 1px solid #000;
-            border-radius: 3px;
+        #links-form input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
+        }
+        
+        .submit-btn {
+            padding: 12px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
             font-family: "jet";
             cursor: pointer;
-            align-self: flex-start;
+            transition: all 0.3s ease;
             margin-top: 10px;
         }
         
-        #add-input-btn:hover {
-            background: rgb(1, 180, 170);
+        .submit-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* Стили для блока результатов */
+        .results-card {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            background: white;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            display: none; /* Скрыт по умолчанию */
+        }
+        
+        .product-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .product-image {
+            width: 120px;
+            height: 120px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            flex: 1;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            margin: 0 0 10px 0;
+            color: var(--dark-color);
+        }
+        
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 5px 0;
+        }
+        
+        .product-rating {
+            color: var(--warning-color);
+            margin: 5px 0;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .tow-container {
+                flex-direction: column;
+            }
+            
+            .product-item {
+                flex-direction: column;
+            }
+            
+            .product-image {
+                width: 100%;
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -64,32 +148,110 @@
         <input type="text" placeholder="ПОИСК">
         <a href="tow.html" class="buthed">СРАВНИТЬ ТОВАРЫ</a>
         <a href="index.html" class="buthed">ГЛАВНАЯ</a>
-        <a href="" class="cab"></a>
+        <a href="LK.html" class="cab"></a>
     </div>
-    <div class="tow">
-        <div class="card">
-            <!-- Здесь будет карточка товара -->
-            <form id="links-form" action="links">
-                <div class="input-group">
-                    <input type="text" placeholder="Ссылка на товар 1" required>
-                    <input type="text" placeholder="Ссылка на товар 2" required>
+    
+    <div class="tow-container">
+        <!-- Блок с формой ввода -->
+        <div class="input-card">
+            <form id="links-form">
+                <div class="input-group" id="input-group">
+                    <input type="text" class="product-input" placeholder="Введите ссылку на товар 1" required>
+                    <input type="text" class="product-input" placeholder="Введите ссылку на товар 2" required>
                 </div>
-                <button type="button" id="add-input-btn">Добавить товар</button>
+                <button type="button" id="add-input-btn" class="submit-btn" style="background: var(--accent-color);">+ Добавить товар</button>
+                <button type="submit" class="submit-btn">Сравнить товары</button>
             </form>
         </div>
-        <div class="price">
-
+        
+        <!-- Блок с результатами (изначально скрыт) -->
+        <div class="results-card" id="results-card">
+            <h2>Результаты сравнения</h2>
+            <div id="products-container">
+                <!-- Здесь будут отображаться товары -->
+            </div>
         </div>
     </div>
 
     <script>
-        document.getElementById('add-input-btn').addEventListener('click', function() {
-            const inputGroup = document.querySelector('.input-group');
+        const form = document.getElementById('links-form');
+        const inputGroup = document.getElementById('input-group');
+        const addInputBtn = document.getElementById('add-input-btn');
+        const resultsCard = document.getElementById('results-card');
+        const productsContainer = document.getElementById('products-container');
+        
+        // Функция для добавления нового поля ввода
+        function addInputField() {
             const newInput = document.createElement('input');
             newInput.type = 'text';
-            newInput.placeholder = 'Ссылка на товар ' + (inputGroup.children.length + 1);
+            newInput.className = 'product-input';
+            newInput.placeholder = `Введите ссылку на товар ${inputGroup.children.length + 1}`;
             newInput.required = true;
             inputGroup.appendChild(newInput);
+        }
+        
+        // Добавляем поле при нажатии кнопки
+        addInputBtn.addEventListener('click', addInputField);
+        
+        // Обработчик отправки формы
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Собираем все ссылки
+            const inputs = document.querySelectorAll('.product-input');
+            const links = Array.from(inputs)
+                .map(input => input.value.trim())
+                .filter(link => link !== '');
+            
+            if (links.length < 2) {
+                alert('Для сравнения нужно ввести хотя бы 2 ссылки');
+                return;
+            }
+            
+            // Очищаем предыдущие результаты
+            productsContainer.innerHTML = '';
+            
+            // Здесь будет запрос к API для получения данных о товарах
+            // Временно используем mock-данные для демонстрации
+            const mockProducts = [
+                {
+                    title: "Смартфон Samsung Galaxy S23",
+                    price: "79 990 ₽",
+                    rating: "4.8",
+                    image: "https://via.placeholder.com/120",
+                    features: ["6.1\" AMOLED", "Snapdragon 8 Gen 2", "128 ГБ"]
+                },
+                {
+                    title: "Смартфон iPhone 14",
+                    price: "89 990 ₽",
+                    rating: "4.9",
+                    image: "https://via.placeholder.com/120",
+                    features: ["6.1\" Super Retina", "A15 Bionic", "128 ГБ"]
+                }
+            ];
+            
+            // Отображаем товары
+            mockProducts.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.className = 'product-item';
+                productItem.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <div class="product-price">${product.price}</div>
+                        <div class="product-rating">Рейтинг: ${product.rating}/5</div>
+                        <div class="product-features">
+                            <p>${product.features.join(' • ')}</p>
+                        </div>
+                    </div>
+                `;
+                productsContainer.appendChild(productItem);
+            });
+            
+            // Показываем блок с результатами
+            resultsCard.style.display = 'block';
         });
     </script>
 </body>
