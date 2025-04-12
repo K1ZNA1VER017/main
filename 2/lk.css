@@ -29,6 +29,43 @@ body, html {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+.header input {
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.9);
+    font-family: "jet";
+    width: 400px;
+    height: 40px;
+    padding: 0 20px;
+    margin-right: 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.header input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--accent-color);
+    background: white;
+}
+
+.buthed {
+    text-decoration: none;
+    font-family: "jet";
+    color: white;
+    margin: 0 10px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.buthed:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+
 .main {
     display: flex;
     min-height: calc(100vh - 80px);
